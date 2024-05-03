@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-    <Details/>
+    <Details title='I am ' text='in Slovyansk' number={3}/>
     </>
   );
 }
