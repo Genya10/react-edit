@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { Details } from "./Details";
 
 function App() {
 
+  const [title,setTitle] = useState('Null');
+
   return (
-    <>
-    <Details title='I am ' text='in Slovyansk' number={3}/>
-    </>
+    <div>
+     <Details title={title} setTitle={setTitle}/>
+    </div>
   );
 }
 
