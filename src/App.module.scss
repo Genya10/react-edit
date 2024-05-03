@@ -1,0 +1,17 @@
+$primary: blue;
+
+.container{
+    width: 400px;
+    margin-left: 30rem;
+    background-color:$primary;
+    padding: 20px;
+}
+.title{
+    font-size: 60px;
+    color: red;
+    text-transform: uppercase;
+}
+.text {
+    font-size: 36px;
+    color: yellowgreen;
+}
