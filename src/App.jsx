@@ -3,11 +3,17 @@ import { Details } from "./Details";
 
 function App() {
 
-  const [title,setTitle] = useState('Null');
+const [details, setDetails] = useState({
+  title:'Null',
+  description:'Hello,everybody',
+  buttonText:'Click me'
+})
 
   return (
     <div>
-     <Details title={title} setTitle={setTitle}/>
+     <Details
+       details={details} setDetails={setDetails}
+      />
     </div>
   );
 }
