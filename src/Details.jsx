@@ -1,4 +1,4 @@
-import cl from './Details.module.scss'
+import cl from './Details.module.scss';
 
 export const Details = ({details, setDetails}) => {
   return (
@@ -12,7 +12,7 @@ export const Details = ({details, setDetails}) => {
                  setDetails(prev => {
                     return {
                         ...prev,
-                        description: prev.description + '+new'
+                        title: prev.title + '+new'
                     }
                  })
             }}>{details.buttonText}</button>            

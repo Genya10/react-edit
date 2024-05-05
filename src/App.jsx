@@ -18,8 +18,15 @@ function App() {
       clearTimeout(timeout);
     }
   });
- 
 
+ useEffect(()=>{
+  console.log('title changed')
+  setDetails(prev=>({    
+    ...prev,
+    description:'title has changed!'
+  }))
+ },[details.title])
+ 
   return (
     <div className={cl.container}>
       <img src="./iam.jpg" width={250} />
