@@ -1,6 +1,6 @@
 import cl from './Details.module.scss';
 
-export const Details = ({details, setDetails}) => {
+export const Details = ({details, setDetails,handleLoading}) => {
   return (
     <div>
       <div >       
@@ -15,7 +15,9 @@ export const Details = ({details, setDetails}) => {
                         title: prev.title + '+new'
                     }
                  })
-            }}>{details.buttonText}</button>            
+            }}>{details.buttonText}</button>  
+            <button onClick={handleLoading}
+            >Change loading</button>          
          </div>
         </div>       
       </div>
