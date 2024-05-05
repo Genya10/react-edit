@@ -17,8 +17,7 @@ export const Details = ({details, setDetails}) => {
                  })
             }}>{details.buttonText}</button>            
          </div>
-        </div>
-       
+        </div>       
       </div>
     </div>
   );

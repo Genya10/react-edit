@@ -1,35 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Details } from "./Details";
 import cl from "./Details.module.scss";
 
 function App() {
   const [details, setDetails] = useState({
-    isLoading: true,
+    isLoading: false,
     title: "useEffect",
     description: "Hello,everybody",
     buttonText: "Click me",
   });
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setDetails((prev) => ({ ...prev, isLoading: false }));
-    }, 2000);
-    return ()=>{
-      clearTimeout(timeout);
-    }
-  });
+  const imageRef = useRef(null)
 
- useEffect(()=>{
-  console.log('title changed')
-  setDetails(prev=>({    
-    ...prev,
-    description:'title has changed!'
-  }))
- },[details.title])
+  const onClick =()=>{
+    if(!imageRef.current) return
+    imageRef.current.style.borderRadius = '30px';
+    imageRef.current.style.boxShadow = '10px 10px 10px rgba(125, 0, 0, 0.8)';
+    console.log(imageRef.current)
+  }
  
   return (
     <div className={cl.container}>
-      <img src="./iam.jpg" width={250} />
+      
+     <img ref={imageRef} src="./iam.jpg" width={250} /> 
+      <br/>
+      <button onClick={onClick}>
+        Change image</button>
+      
+      
       {details.isLoading ? (
         <p>Loading...</p>
       ) : (
