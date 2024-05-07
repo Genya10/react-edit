@@ -1,10 +1,20 @@
 $primary: blue;
 
 .container{
-    width: 500px;
-    margin-left: 30rem;
+    width: 100%;
+    min-height: 100vh;
     background-color:$primary;
-    padding: 20px;
+    padding: 2rem 0;
+    text-align: center;
+}
+button{
+    font-size: 24px;
+    font-weight: 700;
+    background-color: aqua;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 120px;
 }
 .title{
     font-size: 40px;

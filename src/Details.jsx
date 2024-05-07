@@ -1,6 +1,6 @@
-import cl from './Details.module.scss';
+import { memo } from "react";
 
-export const Details = ({details, setDetails,handleLoading}) => {
+ const InitialDetails = ({details, setDetails,handleLoading}) => {
   return (
     <div>
       <div >       
@@ -24,3 +24,5 @@ export const Details = ({details, setDetails,handleLoading}) => {
     </div>
   );
 };
+
+export const Details= memo(InitialDetails);
