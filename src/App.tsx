@@ -4,9 +4,10 @@ import cl from "./Details.module.scss";
 import { AuthContext } from "./AuthContext";
 import { Header } from "./Header";
 import { Link, useNavigate } from "react-router-dom";
+import { ITodo } from "./types";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import { AuthProvider } from './AuthContext.jsx';
+import App from './App.js';
+import { AuthProvider } from './AuthContext.js';
+
+const rootElement = document.getElementById('root')
+if(!rootElement) throw new Error('Failed to find the root element')
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
   }
 ])
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <AuthProvider>
        <RouterProvider router={router}/>

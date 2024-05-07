@@ -1,6 +1,13 @@
 import { memo } from "react";
+import { IDetails } from "./types";
 
- const InitialDetails = ({details, setDetails,handleLoading}) => {
+interface Props {
+  details:IDetails,
+  handleLoading:()=> void
+}
+
+ const InitialDetails = ({details,handleLoading}:Props) => {
+  
   return (
     <div>
       <div >       
@@ -8,14 +15,8 @@ import { memo } from "react";
          <h1>{details.title}</h1>
          <h2>{details.description}</h2>
          <div>
-            <button onClick={()=>{
-                 setDetails(prev => {
-                    return {
-                        ...prev,
-                        title: prev.title + '+new'
-                    }
-                 })
-            }}>{details.buttonText}</button>  
+            <button onClick={handleLoading}
+            >{details.buttonText}</button>  
             <button onClick={handleLoading}
             >Change loading</button>          
          </div>
