@@ -6,7 +6,7 @@ import { Header } from "./Header";
 
 function App() {
 
-  const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext);
+  const {isLoggedIn, setIsLoggedIn} = useAuth();
 
   return (
     <div className={cl.container}>
