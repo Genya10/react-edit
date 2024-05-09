@@ -1,5 +1,5 @@
 import { useState} from "react";
-import cl from './EmailEditor.module.css';
+import cl from './EmailEditor.module.scss';
 import { Eraser,Bold, Italic, Underline } from "lucide-react";
 
 function EmailEditor() {
@@ -17,10 +17,10 @@ function EmailEditor() {
         </div>
         <div className={cl.actions}>
           <div className={cl.tools}>
-          <button><Eraser/></button>
-          <button><Bold/></button>
-          <button><Italic/></button>
-          <button><Underline/></button>
+          <button><Eraser size={16}/></button>
+          <button><Bold size={16}/></button>
+          <button><Italic size={16}/></button>
+          <button><Underline size={16}/></button>
           </div>
           <button>Send now</button>
         </div>

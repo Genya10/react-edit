@@ -1,5 +1,5 @@
-import EmailEditor from "./email-editor/EmailEditor";
-import { EmailList } from "./email-list/EmailList";
+import EmailEditor from "./component/email-editor/EmailEditor";
+import { EmailList } from "./component/email-list/EmailList";
 
 export function Home(){
     return <div style={{
