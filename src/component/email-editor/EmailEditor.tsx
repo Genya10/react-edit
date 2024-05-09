@@ -8,7 +8,8 @@ function EmailEditor() {
     <div>
       <h1>Email editor</h1>
       <div className={cl.card}>
-        <div className={cl.editor}>
+        <div className={cl.editor}
+        spellCheck='false'>
          Hey!
          Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Animi, dolor? Saepe, cum repellat sequi voluptates fuga

@@ -12,6 +12,11 @@
 .editor{
  padding: 1rem;
  padding-bottom: 1.5rem;
+ display: block;
+ width: 100%;
+ min-height: 150px;
+ width: calc(100% - 2rem);
+ resize: none;
 }
 
 .actions{
