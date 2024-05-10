@@ -1,48 +1,55 @@
-.card{
-    background-color: rgba(0, 0, 0, 0.3 );
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 3px 5px 8px;
+.preview {
+  margin-bottom: 2rem;
+  border: 1px solid #2e2e2e;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
-.read-the-docs{
-    color:#888;
+.card {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 3px 5px 8px;
 }
 
-.editor{
- padding: 1rem;
- padding-bottom: 1.5rem;
- display: block;
- width: 100%;
- min-height: 150px;
- width: calc(100% - 2rem);
- resize: none;
+.read-the-docs {
+  color: #888;
 }
 
-.actions{
-  background-color: rgba(0,0,0,0.6);
-  display:flex;
+.editor {
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  width: calc(100% - 2rem);
+  resize: none;
+}
+
+.actions {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
 
- .tools{
- >button{
-    color: white;
-    margin-right: 0.5rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 0.4s ease-in-out;
+  .tools {
+    > button {
+      color: white;
+      margin-right: 0.5rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.4s ease-in-out;
 
-    &:hover{
+      &:hover {
         color: burlywood;
+      }
     }
   }
- }
 
- > button {
-    color:white;
+  > button {
+    color: white;
     background-color: rgb(0, 0, 255);
     border-radius: 10px;
     border: 2px solid transparent;
@@ -53,11 +60,11 @@
     cursor: pointer;
     transition: border-color 0.3s;
     &:hover {
-        border-color: #646cff;
+      border-color: #646cff;
     }
-&:focus,
-&:focus-visible{
-    outline: 4px auto -webkit-focus-ring-color;
+    &:focus,
+    &:focus-visible {
+      outline: 4px auto -webkit-focus-ring-color;
+    }
   }
- }
 }
