@@ -1,6 +1,7 @@
 import cl from './EmailList.module.scss';
 import { useQuery } from '@tanstack/react-query';
 import { emailService } from '../../services/email.service';
+import parse from 'html-react-parser';
 
 export function EmailList(){
     const { data } = useQuery({
@@ -11,7 +12,7 @@ export function EmailList(){
     return (
       <div className={cl.list}>
         {data?.map(email => (
-            <div key={email.text}>{email.text}</div>
+            <div key={email.text}>{parse(email.text)}</div>
         ))}
       </div>)
 }

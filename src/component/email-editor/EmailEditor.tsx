@@ -3,18 +3,28 @@ import cl from "./EmailEditor.module.scss";
 import { Eraser, Bold, Italic, Underline } from "lucide-react";
 import { applyStyle, IType } from "./appply-style";
 import parse from "html-react-parser";
+import {useMutation, useQueryClient} from '@tanstack/react-query';
+import { emailService } from "../../services/email.service";
 
 function EmailEditor() {
-  const [text, setText] = useState(`Hey!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Animi, dolor? Saepe, cum repellat sequi voluptates fuga
-      alias soluta voluptas maxime. Natus magnam,
-      voluptate incidunt esse libero sit distinctio ut tempora.`);
+
+  const [text, setText] = useState('Enter email...');
 
   const [selectionStart, setSelectionStart] = useState(0);
   const [selectionEnd, setSelectionEnd] = useState(0);
 
   const textRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const queryClient = useQueryClient();
+
+  const {mutate, isPending} = useMutation({
+    mutationKey:['create email'],
+    mutationFn:() => emailService.sendEmail(text),
+    onSuccess(){
+      setText('')
+      queryClient.refetchQueries({queryKey:['email list']})
+    },
+  })
 
   const updateSelection = () => {
     if (!textRef.current) return;
@@ -36,7 +46,7 @@ function EmailEditor() {
   return (
     <div>
       <h1>Email editor</h1>
-      <div className={cl.preview}>{parse(text)}</div>
+      {text && <div className={cl.preview}>{parse(text)}</div>}      
       <div className={cl.card}>
         <textarea
           className={cl.editor}
@@ -61,7 +71,8 @@ function EmailEditor() {
               <Underline size={16} />
             </button>
           </div>
-          <button>Send now</button>
+          <button disabled={isPending} onClick={() => mutate()}
+            >Send now</button>
         </div>
       </div>
     </div>
