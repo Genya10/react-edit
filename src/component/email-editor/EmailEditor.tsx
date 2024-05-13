@@ -5,15 +5,11 @@ import { applyStyle, IType } from "./appply-style";
 import parse from "html-react-parser";
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import { emailService } from "../../services/email.service";
+import { useEditor } from "./useEditor";
 
 function EmailEditor() {
 
-  const [text, setText] = useState('Enter email...');
-
-  const [selectionStart, setSelectionStart] = useState(0);
-  const [selectionEnd, setSelectionEnd] = useState(0);
-
-  const textRef = useRef<HTMLTextAreaElement | null>(null);
+const {text,setText,textRef ,updateSelection, getSelectionText} = useEditor();
 
   const queryClient = useQueryClient();
 
@@ -25,23 +21,6 @@ function EmailEditor() {
       queryClient.refetchQueries({queryKey:['email list']})
     },
   })
-
-  const updateSelection = () => {
-    if (!textRef.current) return;
-    setSelectionStart(textRef.current.selectionStart);
-    setSelectionEnd(textRef.current.selectionEnd);
-  };
-
-  const getSelectionText = (type: IType) => {
-    const selectedText = text.substring(selectionStart, selectionEnd); //выделенный текст
-    if (!selectedText) return;
-
-    const before = text.substring(0, selectionStart); //текс до выделенного фрагмента
-    const after = text.substring(selectionEnd); //текст после выделенного фрагмента
-
-    setText(before + applyStyle(type, selectedText) + after);
-    console.log(selectedText);
-  };
 
   return (
     <div>
