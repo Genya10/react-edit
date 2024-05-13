@@ -1,36 +1,34 @@
-import { useState, useRef } from "react";
 import cl from "./EmailEditor.module.scss";
 import { Eraser, Bold, Italic, Underline } from "lucide-react";
-import { applyStyle, IType } from "./appply-style";
 import parse from "html-react-parser";
-import {useMutation, useQueryClient} from '@tanstack/react-query';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { emailService } from "../../services/email.service";
 import { useEditor } from "./useEditor";
 
 function EmailEditor() {
-
-const {text,setText,textRef ,updateSelection, getSelectionText} = useEditor();
+  const { text, setText, textRef, updateSelection, getSelectionText } =
+    useEditor();
 
   const queryClient = useQueryClient();
 
-  const {mutate, isPending} = useMutation({
-    mutationKey:['create email'],
-    mutationFn:() => emailService.sendEmail(text),
-    onSuccess(){
-      setText('')
-      queryClient.refetchQueries({queryKey:['email list']})
+  const { mutate, isPending } = useMutation({
+    mutationKey: ["create email"],
+    mutationFn: () => emailService.sendEmail(text),
+    onSuccess() {
+      setText("");
+      queryClient.refetchQueries({ queryKey: ["email list"] });
     },
-  })
+  });
 
   return (
     <div>
       <h1>Email editor</h1>
-      {text && <div className={cl.preview}>{parse(text)}</div>}      
+      {text && <div className={cl.preview}>{parse(text)}</div>}
       <div className={cl.card}>
         <textarea
-          className={cl.editor}
-          spellCheck="false"
           ref={textRef}
+          className={cl.editor}
+          spellCheck="false"         
           onSelect={updateSelection}
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -50,8 +48,9 @@ const {text,setText,textRef ,updateSelection, getSelectionText} = useEditor();
               <Underline size={16} />
             </button>
           </div>
-          <button disabled={isPending} onClick={() => mutate()}
-            >Send now</button>
+          <button disabled={isPending} onClick={() => mutate()}>
+            Send now
+          </button>
         </div>
       </div>
     </div>

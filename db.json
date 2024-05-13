@@ -1,5 +1,20 @@
 {
-    "emails":[
-        {"text":"a title"}
-    ]
+  "emails": [
+    {
+      "id": "1",
+      "text": "a title"
+    },
+    {
+      "text": "Enter email...gerwherh",
+      "id": "6SNGjPF"
+    },
+    {
+      "text": "vdbtjet<i>ykur</i>kry",
+      "id": "TSLbG_A"
+    },
+    {
+      "text": "qw<b>43wrfq</b>eg",
+      "id": "qh0D6ZY"
+    }
+  ]
 }
